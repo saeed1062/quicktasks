@@ -80,7 +80,7 @@ import os
 
 DATABASES = {
     "default": dj_database_url.parse(
-        os.getenv('DATABASE_URL')
+        os.environ.get('DATABASE_URL')
     )
 }
 
