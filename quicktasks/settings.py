@@ -78,10 +78,13 @@ WSGI_APPLICATION = 'quicktasks.wsgi.application'
 import dj_database_url
 import os
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set!")
+
 DATABASES = {
-    "default": dj_database_url.parse(
-        os.environ.get('DATABASE_URL')
-    )
+    "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 }
 
 
