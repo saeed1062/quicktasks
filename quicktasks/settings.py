@@ -84,7 +84,7 @@ if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable is not set!")
 
 DATABASES = {
-    "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+    "default": dj_database_url.parse("postgresql://quicktasks_db_user:iP0iUQ0jnQ2tIDbH5MOeP0tuaNieKRy0@dpg-d6q1mhtm5p6s73ftl110-a/quicktasks_db")
 }
 
 
