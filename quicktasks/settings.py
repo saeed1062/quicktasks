@@ -76,9 +76,10 @@ WSGI_APPLICATION = 'quicktasks.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 import dj_database_url
+import os
 
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://quicktasks_db_user:iP0iUQ0jnQ2tIDbH5MOeP0tuaNieKRy0@dpg-d6q1mhtm5p6s73ftl110-a/quicktasks_db")
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
